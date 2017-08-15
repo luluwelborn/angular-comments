@@ -1,4 +1,14 @@
 <h1>Comments</h1>
 <ul>
-    <li *ngFor="let comment of comments">{{comment}}</li>
+    <li *ngFor="let comment of comments">{{comment.message}} from {{comment.author}}</li>
 </ul>
+
+<form>
+	MESSAGE:<br>
+	<input type='text' name='fname'><br>
+	AUTHOR:<br>
+	<input type='text' name='lname'><br>
+	<button type="button" class="btn btn-primary"(click)="newComment()">NEW COMMENT</button>
+	<!-- <button type="button" class="btn btn-primary">Primary</button> -->
+</form>
+
