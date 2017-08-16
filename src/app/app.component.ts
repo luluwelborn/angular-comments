@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { NgModule } from '@angular/core';
+
+class quote {
+	text: string;
+	author: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -6,22 +12,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	
-}
+	newQuote: quote;
+	constructor() {
+		this.newQuote = new quote();
+	}
 
-let comments = [
-     {'message':"first comment!", 'author': 'unknown'},
-     {'message': 'nice work!', 'author': 'unknown'},
-     {'message': 'I would also like to congratulate you!', 'author': 'unknown'}
+	comments = [
+     {text:"first comment!", author: ''},
+     {text: 'nice work!', author: ''},
+     {text: 'I would also like to congratulate you!', author: ''}
 	];
 
-	let newComment =[];
-
-	newComment.map(item => {
-		return {
-			message:item.message,
-			author:item.author
+	onSubmit(text) {
+		if (this.newQuote) {
+			var entry = {
+				'text': this.newQuote.text,
+				'author': this.newQuote.author
+			};
+		this.comments.push(entry);
 		}
-	}).forEach(item => newComment.push(item));
+	}
 
-console.log(newComment);
+	remove(index: number) {
+		this.comments.splice(index, 1);
+	}
+
+}
+
+
+
+
+
