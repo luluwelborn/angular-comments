@@ -11,6 +11,7 @@ class quote {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
 	newQuote: quote;
 	constructor() {
@@ -33,10 +34,13 @@ export class AppComponent {
 		}
 	}
 
-	remove(index: number) {
-		this.comments.splice(index, 1);
+	onDelete(i) {
+		this.comments.splice(i, 1);
 	}
 
+	// onUpdate() {
+	// 	this.comments.update();
+	// }
 }
 
 
